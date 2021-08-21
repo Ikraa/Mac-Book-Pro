@@ -26,20 +26,24 @@ function updateSubTotal()
     const deliveryTotal=parseFloat(deliverySubText);
     const subTotal=memoryCostAll+storageCostAll+deliveryTotal+bestPriceProduct;
     totalPrice.innerText=subTotal;
-    const grandTotalText=grandTotal.innerText;
-    const finalTotal=parseFloat(grandTotalText);
+    const finalTotal=parseFloat(grandTotal.innerText);
+    grandTotal.innerText=finalTotal;
+    grandTotal.innerText=subTotal;
 };
 
-handle function of Grand total price:(Total)
- function calculateTotal(){
-    const promoCodeInput=promoCodeField.value;
+// handle function of Grand total price:(Total)
+ function calculateTotal(){  
+    const promoCodeField= document.getElementById('promo-code-input');
+    const grandTotal=document.getElementById('grand-total');
     promoCodeField.value='';
-    if(promoCodeInput==stevekaku){
-        const discount= subTotal/20;
-        promoCodeField.value=discount;
-    }
-    return discount;
-};
+    let promoCode=promoCodeField.value;
+    if(promoCode=="stevekaku"){
+        const discount=subTotal/20;
+        discount=promoCode+totalPrice.innerText;
+        grandTotal.innerText=discount;
+        return discount;
+     }
+}; 
   
   
 // handle event of Memory 8GB & 16GB :
@@ -70,11 +74,11 @@ storage1Tb.addEventListener('click', function(){
 // handle event of delivery charge free & paid:
 freeDelivery.addEventListener('click', function(){
     deliverySubTotal.innerText='0';
-    updateSubTotal()
+    updateSubTotal();
 })
 deliveryCharge.addEventListener('click', function(){
     deliverySubTotal.innerText='20';
-    updateSubTotal()
+    updateSubTotal();
 });
 // handle event of promo code apply:
  
