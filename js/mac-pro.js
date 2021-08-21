@@ -13,6 +13,7 @@ const deliverySubTotal = document.getElementById('delivery-total')
 const totalPrice = document.getElementById('total-price');
 const buttonApply = document.getElementById('btn-apply');
 const grandTotal = document.getElementById('grand-total');
+const promoCode = document.getElementById('promo-code-input');
 
 
 // handle function of Total Price:(sub-total)
@@ -30,16 +31,17 @@ function updateSubTotal() {
     let Total = parseFloat(grandTotal.innerText);
     grandTotal.innerText = Total;
     grandTotal.innerText = subTotal;
-    console.log(subTotal);
+    // console.log(subTotal);
 
-   // promo(subTotal);
-    const promoCodee = document.getElementById('promo-code-input').value;
-    if (promoCodee == 'stevekaku') {
+    // promo(subTotal);
+    const promoCodeInput = promoCode.value;
+    if (promoCodeInput == 'stevekaku') {
         const total = parseFloat(subTotal);
         // console.log('Before promo',total)
-        const afterPromoTotal = total - (total*0.20);
-        grandTotal.innerText=afterPromoTotal;
-        // console.log('After promo', parseInt(afterPromoTotal))
+        const afterPromoTotal = total - (total * 0.20);
+        grandTotal.innerText = afterPromoTotal;
+        console.log('After promo', parseInt(afterPromoTotal));
+        promoCode.value = '';
     }
 };
 // console.log(promoCode);
@@ -80,9 +82,23 @@ deliveryCharge.addEventListener('click', function () {
 });
 // handle event and function of promo code apply:
 
- buttonApply.addEventListener('click',function(){
-    promoCode();
+buttonApply.addEventListener('click', function () {
+    promoCodeTotal();
+
 });
-function promoCode(){
+// handle disable button input of promo code
+document.getElementById('promo-code-input').addEventListener('keyup', function (event) {
+    if (event.target.value == 'stevekaku') {
+        buttonApply.removeAttribute('disabled');
+    }
+    else {
+        buttonApply.setAttribute('disabled', true);
+    }
+
+    console.log(event.target.value);
+});
+
+// promo code function
+function promoCodeTotal() {
     updateSubTotal();
 }
