@@ -1,12 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mac Book Pro</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Tailwind CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet">
+        <!-- Custome CSS Styling -->
+        <link rel="stylesheet" href="css/style.css">
+        <title>Mac Book Pro</title>
+
+    </head>
+    <body>
+        <main>
+            <section class="container mx-auto px-5">
+                <div class="grid grid-cols-2">
+                    <!-- image -->
+                    <div class="p-12 m-5">
+                        <div>
+                            <img src="images/mac.png">
+                        </div>
+                    </div>
+                    <!------------------------Options Part Start--------------------------->
+                    <div class="mt-12 mx-auto">
+                        <div>
+                            <h1 class="text-5xl mb-6">
+                                Customize your Blue 24-inch iMac with Apple M1
+                                chip.
+                            </h1>
+                            <p>
+                                Apple M1 chip with 8-core CPU with 4 performance
+                                cores and 4 efficiency cores, 7-core GPU, and
+                                16-core Neural Engine <br>
+                                <br>8GB unified memory
+                                <br>256GB SSD storage
+                                <br>Two Thunderbolt / USB 4 ports
+                                <br>Magic Mouse
+                                <br>Magic Keyboard - US English
+                            </p>
+                        </div>
+                        <!-- Memory Button -->
+                        <div class="px-4 pb-4 py-10">
+                            <h1 class="text-xl font-bold pb-2">Memory</h1>
+                            <button class="border border-black rounded px-5
+                                py-2" id="btn-memory-8gb">
+                                8GB unified memory
+                            </button>
+                            <button class="border border-black rounded px-5
+                                py-2" id="btn-memory-16gb">
+                                16GB unified memory
+                            </button>
+                        </div>
+                        <!-- Storage Button -->
+                        <div class="p-5">
+                            <h1 class="text-xl font-bold pb-2">Storage</h1>
+                            <button class="border border-black rounded px-5
+                                py-2" id="ssd-256gb">
+                                256GB SSD storage
+                            </button>
+                            <button class="border border-black rounded px-5
+                                py-2" id="ssd-512gb">
+                                512GB SSD storage
+                            </button>
+                            <button class="border border-black rounded px-5
+                                py-2" id="ssd-1Tb">
+                                1TB SSD storage
+                            </button>
+                        </div>
+                        <!--------------Delivery Options------------ -->
+                        <div class="p-4">
+                            <h1 class="text-xl font-bold pb-2">Choose your
+                                delivery option</h1>
+                            <button class="border border-black rounded px-5
+                                py-2" id="free">
+                                Friday, Aug 25 FREE Prime Delivery
+                            </button>
+                            <button class="border border-black rounded px-5
+                                py-2" id="delivery-charge">
+                                Friday, Aug 21 Delivery Charge $20
+                            </button>
+                        </div>
+                        <!--------------Option Part End-------------->
+
+                        <!-----------Price ---------->
+                        <div class="p-5">
+                                <table class="table-fixed font-bold">
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td>Best Price</td>
+                                            <td>$<span id="best-price">1299</span></td>
+                                        </tr>
+                                        <tr class="border-b-2">
+                                            <td>Extra Memory Cost</td>
+                                            <td>$<span id="memory-cost">0</span></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td>Extra Storage Cost</td>
+                                            <td>$<span id="storage-cost">0</span></td>
+                                        </tr>
+                                        <tr class="border-b-2 border-black">
+                                            <td>Delivery Charge</td>
+                                            <td>$<span id="delivery-total">0</span></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td>Total Price</td>
+                                            <td>$<span id="total-price">1299</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                             <!--------Promo Code------>
+                            <div class="pb-5">
+                                <h1 class="font-medium">Add Promo Code</h1>
+                                <input type="text" class="border p-2 border-gray-400 rounded" id="promo-code-input"><button class="btn-color p-2 rounded text-white" id="btn-apply">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="container mx-auto border-t pt-4 pb-8">
+                <p class="text-center font-semibold text-4xl">
+                   Total: $ <span id="grand-total">1299</span>
+                </p>
+
+            </section>
+        </main>
+
+        <!--------------Custome js--------------->
+        <script src="js/mac-pro.js"></script>
+
+    </body>
 </html>
